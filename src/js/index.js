@@ -40,13 +40,14 @@ function render(variables = {}) {
   let instagramLink = variables.instagram
     ? `<li><a href="https://instagram.com/${variables.instagram}"><i class="fa fa-instagram"></i></a></li>`
     : "";
+  let cityLink = variables.city ? `${variables.city + ","}` : "";
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
           <h1>${variables.name || ""} ${variables.lastname || ""}</h1>
           <h2>${variables.role || ""}</h2>
-          <h3>${variables.city || ""} ${variables.country || ""}</h3>
+          <h3>${cityLink} ${variables.country || ""}</h3>
           <ul class="${variables.socialMediaPosition}">
           ${twitterLink}
           ${githubLink}
